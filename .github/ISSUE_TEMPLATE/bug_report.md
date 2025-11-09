@@ -2,7 +2,7 @@
 name: 버그 리포트
 about: 버그를 신고하여 문제 해결에 도움을 주세요.
 title: '[버그] 문제 설명'
-labels: bug
+labels: Type: bug
 assignees: ''
 ---
 
