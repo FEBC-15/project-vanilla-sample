@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -18,13 +18,13 @@
     <meta property="og:site_name" content="라이언 보드" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="./src/components/Header.ts"></script>
-    <script type="module" src="./src/main.ts"></script>
 
+    <script type="module" src="./src/components/Header.ts"></script>
+    <script type="module" src="./src/components/Footer.ts"></script>
+    <script type="module" src="./src/main.ts"></script>
   </head>
   <body class="font-sans">
     <div id="root">
-
       <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
 
         <lion-header></lion-header>
@@ -32,10 +32,13 @@
         <main class="flex-1 container mx-auto mt-10 p-4 transition-color">
           <section class="text-center">
             <h1 class="text-4xl font-bold mb-4">라이언 보드에 오신 것을 환영합니다!</h1>
-            <p class="text-xl mb-6">다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요.</p>
+            <p class="text-xl mb-6">
+              다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에
+              따라 참여하고, 의견을 나누세요.
+            </p>
             <a href="/src/pages/user/login" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">커뮤니티 참여하기</a>
           </section>
-    
+
           <section class="mt-16">
             <h2 class="text-2xl font-bold mb-4 text-center">주요 기능</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -57,24 +60,10 @@
             </div>
           </section>
         </main>
+
+        <lion-footer></lion-footer>
         
-        <footer class="p-4 pb-12 w-full border-t border-t-slate-200  dark:border-t-slate-500 dark:bg-gray-600 text-gray-600 dark:text-white transition-color duration-500 ease-in-out">
-          <div class="min-w-[320px] flex flex-wrap gap-4 justify-center items-center text-sm text-slate-400">
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">약관</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">게시판 정책</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">회사소개</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">광고</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">마이비즈니스</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">제휴 제안</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">이용약관</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">개인정보취급방침</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">청소년보호 정책</a>
-            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">고객센터</a>
-          </div>
-        </footer>
-
       </div>
-
     </div>
   </body>
 </html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 수정 - Lion Board</title>
+
+    <meta name="description" content="다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요." />
+    <meta name="keywords" content="커뮤니티, 소통, 포럼, 관심사, 온라인 모임, 커뮤니티 서비스" />
+    <meta name="author" content="Front-End Boot Camp" />
+
+    <meta property="og:title" content="게시글 수정" />
+    <meta property="og:description" content="게시글을 수정하세요." />
+    <meta property="og:image" content="/assets/images/front-end.png" />
+    <meta property="og:url" content="https://lion-board.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="라이언 보드" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="module" src="../../components/Header.ts"></script>
+    <script type="module" src="../../components/Footer.ts"></script>
+    <script type="module" src="./edit.ts"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
+        
+        <lion-header></lion-header>
+
+        <main class="flex-1 min-w-[320px] p-4">
+          <div class="text-center py-4">
+            <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 수정</h2>
+          </div>
+          <section class="mb-8 p-4">
+            <form id="edit-form" action="detail?id=1&type=info">
+              <div class="my-4">
+                <label class="block text-lg content-center" htmlFor="title">제목</label>
+                <input
+                  id="title"
+                  type="text"
+                  placeholder="제목을 입력하세요."
+                  class="w-full py-2 px-4 border rounded-md dark:bg-gray-700 border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  name="title"
+                  value="리액트란?"
+                />
+
+                <p class="validation-error ml-2 mt-1 text-sm text-red-500 dark:text-red-400">
+                  <!-- 제목은 필수 입니다. -->
+                </p>
+              </div>
+              <div class="my-4">
+                <label class="block text-lg content-center" htmlFor="content">내용</label>
+                <textarea
+                  id="content"
+                  rows="15"
+                  placeholder="내용을 입력하세요."
+                  class="w-full p-4 text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                  name="content"
+                >
+React는 UI를 구성하기 위한 JavaScript 라이브러리로, 컴포넌트 기반 구조를 사용해 재사용성과 유지보수성이 뛰어납니다. 상태 관리와 가상 DOM을 통해 사용자와 빠르게 상호작용하는 동적 웹 앱을 만들 수 있습니다.
+                </textarea>
+                <p class="validation-error ml-2 mt-1 text-sm text-red-500 dark:text-red-400">
+                  <!-- 내용은 필수입니다. -->
+                </p>
+              </div>
+              <hr />
+              <div class="flex justify-end my-6">
+                <button  type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
+                <a href="detail?id=1&type=info" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
+              </div>
+            </form>
+          </section>
+        </main>
+
+        <lion-footer></lion-footer>
+        
+      </div>
+    </div>
+  </body>
+</html>
