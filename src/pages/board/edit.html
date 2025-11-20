@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -18,14 +18,15 @@
     <meta property="og:site_name" content="라이언 보드" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script type="module" src="../../components/Header.ts"></script>
+    <script type="module" src="../../components/Footer.ts"></script>
     <script type="module" src="./edit.ts"></script>
   </head>
   <body>
     <div id="root">
-
       <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
-
+        
         <lion-header></lion-header>
 
         <main class="flex-1 min-w-[320px] p-4">
@@ -33,64 +34,46 @@
             <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 수정</h2>
           </div>
           <section class="mb-8 p-4">
-            <form action="/src/pages/board/detail?id=1&type=info">
+            <form id="edit-form" action="detail?id=1&type=info">
               <div class="my-4">
                 <label class="block text-lg content-center" htmlFor="title">제목</label>
                 <input
                   id="title"
                   type="text"
-                  placeholder="제목을 입력하세요." 
+                  placeholder="제목을 입력하세요."
                   class="w-full py-2 px-4 border rounded-md dark:bg-gray-700 border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                   name="title"
-                  value="리액트란?"
                 />
 
-                <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">
-                  제목은 필수 입니다.
+                <p class="validation-error ml-2 mt-1 text-sm text-red-500 dark:text-red-400">
+                  <!-- 제목은 필수 입니다. -->
                 </p>
-
               </div>
               <div class="my-4">
                 <label class="block text-lg content-center" htmlFor="content">내용</label>
-                <textarea 
+                <textarea
                   id="content"
-                  rows="15" 
+                  rows="15"
                   placeholder="내용을 입력하세요."
                   class="w-full p-4 text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   name="content"
-                >React는 UI를 구성하기 위한 JavaScript 라이브러리로, 컴포넌트 기반 구조를 사용해 재사용성과 유지보수성이 뛰어납니다. 상태 관리와 가상 DOM을 통해 사용자와 빠르게 상호작용하는 동적 웹 앱을 만들 수 있습니다.</textarea>
-
-                <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">
-                  내용은 필수입니다.
+                ></textarea>
+                <p class="validation-error ml-2 mt-1 text-sm text-red-500 dark:text-red-400">
+                  <!-- 내용은 필수입니다. -->
                 </p>
-
               </div>
               <hr />
-              <div class="flex justify-end my-6">
-                <button type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
-                <a href="/src/pages/board/detail?id=1&type=info" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
+              <div id="button-container" class="flex justify-end my-6">
+                <button  type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
+                <a href="detail?id=1&type=info" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
               </div>
             </form>
           </section>
         </main>
+
+        <lion-footer></lion-footer>
         
-        <footer class="p-4 pb-12 w-full border-t border-t-slate-200  dark:border-t-slate-500 dark:bg-gray-600 text-gray-600 dark:text-white transition-color duration-500 ease-in-out">
-          <div class="min-w-[320px] flex flex-wrap gap-4 justify-center items-center text-sm text-slate-400">
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">약관</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">게시판 정책</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">회사소개</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">광고</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">마이비즈니스</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">제휴 제안</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">이용약관</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">개인정보취급방침</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">청소년보호 정책</a>
-            <a href="/" class="hover:font-semibold dark:hover:text-gray-200">고객센터</a>
-          </div>
-        </footer>
-
       </div>
-
     </div>
   </body>
 </html>

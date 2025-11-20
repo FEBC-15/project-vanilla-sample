@@ -50,6 +50,7 @@ function render(post: Post) {
  */
 async function updatePost() {
   const id = new URLSearchParams(window.location.search).get('id');
+  const type = new URLSearchParams(window.location.search).get('type');
   if(id){
     const form = document.querySelector<HTMLFormElement>('#edit-form');
     const formData = new FormData(form!);
@@ -60,7 +61,7 @@ async function updatePost() {
     const data = await updatePostApi(id, post);
     if(data?.ok){
       alert('게시글이 수정되었습니다.');
-      location.href = `detail?id=${id}&type=${data.item.type}`;
+      location.href = `detail?id=${id}&type=${type}`;
     }
   }
 }

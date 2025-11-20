@@ -3,6 +3,14 @@ import { getUser } from './user';
 
 const API_SERVER = 'https://fesp-api.koyeb.app/market';
 
+/**
+ * Axios 인스턴스를 생성하고 인터셉터를 설정하는 함수
+ * 요청 인터셉터에서 공통 파라미터를 추가하고,
+ * 응답 인터셉터에서 에러 처리 및 accessToken 재발행 로직을 처리합니다.
+ * 
+ * @function getAxios
+ * @returns {AxiosInstance} 설정된 Axios 인스턴스
+ */
 export function getAxios(): AxiosInstance {
   const user = getUser();
   const instance = axios.create({
@@ -36,7 +44,7 @@ export function getAxios(): AxiosInstance {
     // 2xx 범위에 있는 상태 코드는 이 함수가 호출됨
 
     return response;
-  }, (error) => {
+  }, async (error) => {
     console.error('에러 응답 인터셉터 호출', error);
     // 2xx 외의 범위에 있는 상태 코드는 이 함수가 호출됨
     // 공통 에러 처리
@@ -59,6 +67,15 @@ export function getAxios(): AxiosInstance {
   return instance;
 }
 
+/**
+ * Axios 에러를 처리하는 함수
+ * AxiosError인 경우 서버의 에러 응답 메시지 출력
+ * 그 외의 경우 일반 Error 메시지를 표시합니다.
+ * 
+ * @function handleAxiosError
+ * @param {unknown} err - 처리할 에러 객체
+ * @returns {void}
+ */
 export function handleAxiosError(err: unknown){
   if(err instanceof AxiosError){
     alert(err.response?.data.message || err.message);
